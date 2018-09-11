@@ -11,7 +11,7 @@
     <div :class="{className: a === 'hello'}">hello</div>
     <div :style="{ color: 'red', fontSize: `${fontSize}px` }">{{a}}</div>
     <!-- 条件渲染 -->
-    <div v-if="a === 'hello'">123</div>
+    <div v-if="a === 'hello'"></div>
     <!-- 列表渲染 -->
     <div v-for="i in array" :key="i">{{i}}</div>
   </div>

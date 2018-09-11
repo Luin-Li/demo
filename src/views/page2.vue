@@ -1,8 +1,8 @@
 <template>
   <div>
-    <el-input v-model="form.info"></el-input>
-    <el-button type="primary" @click="sendMsg">发送</el-button>
-    <p>{{data}}</p>
+    <!-- <el-input v-model="form.info"></el-input> -->
+    <!-- <el-button type="primary" @click="sendMsg">发送</el-button> -->
+    <!-- <p>{{data}}</p> -->
   </div>
 </template>
 
@@ -26,6 +26,8 @@ export default {
           this.data = res.data.data
         })
     }
+  },
+  created () {
   }
 }
 </script>
