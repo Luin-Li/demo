@@ -38,8 +38,8 @@ export default {
   height: 100%;
 }
 .main-container{
-  margin-left: 110px;
-  margin-top: 10px;
-  width: 90%;
+  /* margin-left: 10px; */
+  /* margin-top: 10px; */
+  /* width: 90%; */
 }
 </style>

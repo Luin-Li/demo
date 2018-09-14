@@ -2,7 +2,7 @@
   <div class="set-page">
     <div class="block">
       <div id="line"></div>
-
+      <div>画线</div>
     </div>
   </div>
 </template>
@@ -34,6 +34,7 @@ export default {
 .block {
   width: 200px;
   height: 200px;
+  margin: 10px;
   border: 2px dotted #da8ba6;
 
   display: flex;
