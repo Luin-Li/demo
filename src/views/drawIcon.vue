@@ -7,7 +7,7 @@
 
 <script>
 import {saveIconData} from '../components/get-img-data.js'
-import drawIcon from '../components/draw-icon.js'
+// import drawIcon from '../components/draw-icon.js'
 export default {
   data () {
     return {

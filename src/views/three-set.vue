@@ -2,12 +2,13 @@
   <div class="set-page">
     <div class="block">
       <div id="line"></div>
+
     </div>
   </div>
 </template>
 
 <script>
-import drawLine from '../components/draw-line.js'
+import {drawLine} from '../components/draw-line.js'
 export default {
   data () {
     return {
@@ -16,7 +17,10 @@ export default {
   methods: {
   },
   created () {
-  }
+  },
+  mounted() {
+    drawLine()
+  },
 }
 </script>
 
@@ -26,6 +30,15 @@ export default {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+}
+.block {
+  width: 200px;
+  height: 200px;
+  border: 2px dotted #da8ba6;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 </style>

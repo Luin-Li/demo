@@ -71,7 +71,7 @@ var camera, scene, renderer, stats, materials = [], parameters;
 				// renderer.setPixelRatio( window.devicePixelRatio );
                 renderer.setSize( 416, 418 );
                 
-                var icon = document.getElementsById('gowild-icon')
+                var icon = document.getElementById('gowild-icon')
 				icon.appendChild( renderer.domElement );
 
 				// document.addEventListener( 'mousemove', onDocumentMouseMove, false );
