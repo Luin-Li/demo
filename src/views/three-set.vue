@@ -10,6 +10,7 @@
 <script>
 import {drawLine} from '../components/draw-line.js'
 import {drawNetwork} from '../components/draw-network.js'
+import {drawBallTrack} from '../components/draw-ball-track.js'
 export default {
   data () {
     return {
@@ -21,6 +22,11 @@ export default {
         {name: 'newwork',
          label: '画网格',
          method: drawNetwork
+        },
+        {
+          name: 'ballTrack',
+          label: '动态绘画字母',
+          method: drawBallTrack
         }
       ]
     }
@@ -40,12 +46,14 @@ export default {
 
 <style scoped>
 .set-page {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
 }
 .block {
+  position: relative;
   width: 200px;
   height: 200px;
   margin: 10px;
