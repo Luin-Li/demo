@@ -11,6 +11,7 @@
 import {drawLine} from '../components/draw-line.js'
 import {drawNetwork} from '../components/draw-network.js'
 import {drawBallTrack} from '../components/draw-ball-track.js'
+import {drawLight} from '../components/draw-light.js'
 export default {
   data () {
     return {
@@ -27,6 +28,11 @@ export default {
           name: 'ballTrack',
           label: '动态绘画字母',
           method: drawBallTrack
+        },
+        {
+          name: 'light',
+          label: '添加灯光',
+          method: drawLight
         }
       ]
     }
