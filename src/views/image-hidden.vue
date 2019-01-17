@@ -5,7 +5,6 @@
       <div class="text">附加信息图</div>
     </div>
     <div class="box">
-      <img src="../assets/hupo.png" style="display:none" id="hupo"/>
       <canvas width="200" height="200" id="original-image"></canvas>
       <div class="text">原图</div>
     </div>
@@ -21,6 +20,7 @@
 </template>
 
 <script>
+import originalImgSrc from '../assets/hupo.png'
 export default {
   data () {
     return {
@@ -43,12 +43,9 @@ export default {
       originalImg.onload = () => {
         ctx.drawImage(originalImg, 0, 0)
         originalImgData = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height)
-
-        this.drawNewImage('R', originalImgData)
+        this.drawNewImage('R', originalImgData) // 选择R通道进行合并
       }
-      
-      let file = document.getElementById('hupo')
-      originalImg.src = file.src
+      originalImg.src = originalImgSrc
     },
     drawNewImage (color, originalImgData) { // 加密，color表示添加隐藏信息的颜色通道
       let newImgData = originalImgData.data
@@ -70,13 +67,13 @@ export default {
 
       newImgData.forEach((item, index) => {
         if (index % 4 === bit) { // 隐藏信息的颜色通道
-          if ((this.textData[index + offset] === 0) && (item % 2 === 1)) { // 无信息为奇数变偶数
+          if ((this.textData[index + offset] === 0) && (item % 2 === 1)) { // 原图无信息为奇数变偶数
             if (item === 255) {
               newImgData[index]--
             } else {
               newImgData[index]++
             }
-          } else if ((this.textData[index + offset] !== 0) && (item % 2 === 0)) { // 有信息为偶数变奇数
+          } else if ((this.textData[index + offset] !== 0) && (item % 2 === 0)) { // 原图有信息为偶数变奇数
             newImgData[index]++
           }
         }
@@ -107,7 +104,6 @@ export default {
   mounted () {
     this.drawMsgImage()
     this.drawOriginalImage()
-
     // let originalImgData
     // let ctx = document.getElementById('original-image').getContext('2d')
     // let originalImg = new Image()
