@@ -5,6 +5,7 @@ import page1 from '../views/page1.vue'
 import page2 from '../views/page2.vue'
 import drawIcon from '../views/drawIcon.vue'
 import threeSet from '../views/three-set.vue'
+import imageHidden from '../views/image-hidden.vue'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/three-set',
       component: threeSet,
       name: '示例'
+    },
+    {
+      path: '/image-hidden',
+      component: imageHidden,
+      name: '图片隐身'
     },
   ]
 })
