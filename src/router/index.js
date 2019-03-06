@@ -6,6 +6,7 @@ import page2 from '../views/page2.vue'
 import drawIcon from '../views/drawIcon.vue'
 import threeSet from '../views/three-set.vue'
 import imageHidden from '../views/image-hidden.vue'
+import videoEditor from '../views/video-edit.vue'
 
 Vue.use(Router)
 
@@ -31,5 +32,10 @@ export default new Router({
       component: imageHidden,
       name: '图片隐身'
     },
+    {
+      path: '/video-editor',
+      component: videoEditor,
+      name: '视频编辑'
+    }
   ]
 })
