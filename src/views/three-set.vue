@@ -4,9 +4,6 @@
       <div :id="i.name"></div>
       <div>{{i.label}}</div>
     </div>
-    <div class="block">
-      <canvas width="200" height="200" id="clock"></canvas>
-    </div>
   </div>
 </template>
 
@@ -15,7 +12,10 @@ import {drawLine} from '../components/draw-line.js'
 import {drawNetwork} from '../components/draw-network.js'
 import {drawBallTrack} from '../components/draw-ball-track.js'
 import {drawLight} from '../components/draw-light.js'
-import {drawClock} from '../components/draw-clock.js'
+// import {drawClock} from '../components/draw-clock.js'
+import {drawFace} from '../components/draw-face-ply.js'
+import {drawMoveCube} from '../components/draw-move-cube.js'
+import {drawFont} from '../components/draw-font.js'
 export default {
   data () {
     return {
@@ -37,6 +37,21 @@ export default {
           name: 'light',
           label: '添加灯光',
           method: drawLight
+        },
+        // {
+        //   name: 'face',
+        //   label: '绘制3D模型',
+        //   method: drawFace
+        // },
+        {
+          name: 'moveCube',
+          label: '绘制运动的立方体',
+          method: drawMoveCube
+        },
+        {
+          name: 'font',
+          label: '绘制字体',
+          method: drawFont
         }
       ]
     }
@@ -44,19 +59,11 @@ export default {
   methods: {
   },
   created () {
-    this.$ajax({
-      method: 'get',
-      url: '/class'})
-      .then((res) => {
-        console.log(res.data)
-    })
   },
   mounted() {
     this.block.forEach((item,index) => {
       this.block[index].method()
     })
-    drawClock()
-    // drawLine()
   },
 }
 </script>
