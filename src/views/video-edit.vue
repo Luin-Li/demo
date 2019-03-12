@@ -2,6 +2,7 @@
   <div class="video-editor-demo-page">
     <video id="demo" width="100" height="100" controls autoplay webkit-playsinline="true" playsinline="true" src="../assets/demo-video/4.mp4"></video>
     <div @click="get">点击</div>
+    <audio id="audio" src="https://official.gowild.cn/hupo-ip/index/play-btn/hupo.mp3"></audio>
   </div>
 </template>
 
@@ -15,9 +16,10 @@ export default {
   methods: {
     get() {
       // 法一
-      // let videoOrAudioElement = document.querySelector('demo');
+      let audioElement = document.getElementById('audio');
       // var audioCtx = new AudioContext();
-      // // let myVoice = new Audio('https://official.gowild.cn/hupo-ip/index/play-btn/hupo.mp3');
+      // let myVoice = new Audio('https://official.gowild.cn/hupo-ip/index/play-btn/hupo.mp3');
+      console.log(audioElement.srcObject)
       // let ctx
       // if (window.AudioContext) {
       //   ctx = new AudioContext();
@@ -55,7 +57,6 @@ export default {
       }
       console.log(mediaStream)
       console.log('1',mediaStream.getAudioTracks()[0])
-      console.log('2',mediaStream.getVideoTracks()[0])
     };
   }
 }
