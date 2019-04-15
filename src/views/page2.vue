@@ -1,19 +1,22 @@
 <template>
   <div>
-    <!-- <el-input v-model="form.info"></el-input> -->
-    <!-- <el-button type="primary" @click="sendMsg">发送</el-button> -->
-    <!-- <p>{{data}}</p> -->
+    <kk>{{word}}</kk>
+    <button @click="changeComponent">修改组件</button>
+    <transition enter-active-class="bounceOut" leave-active-class="bounceOutDown">
+      <component class="animated" :is="currentTabComponent"></component>
+    </transition>
+
   </div>
 </template>
 
 <script>
+import kk from '../components/vue-components/kk'
+import k2 from '../components/vue-components/k2'
 export default {
   data () {
     return {
-      form: {
-        info: ''
-      },
-      data: ''
+      word: 'This is from parent’s content.',
+      currentTabComponent: 'k1'
     }
   },
   methods: {
@@ -25,16 +28,28 @@ export default {
         .then((res) => {
           this.data = res.data.data
         })
+    },
+    changeComponent () {
+      if (this.currentTabComponent === 'k1') {
+        this.currentTabComponent = 'k2'
+      } else {
+        this.currentTabComponent = 'k1'
+      }
     }
   },
   created () {
+  },
+  components: {
+    kk,
+    'k1': kk,
+    k2
   }
 }
 </script>
 
 <style scoped>
-div {
-  width: 50%;
+.animated.bounceOut{
+  animation-delay: 1s;
+  display: none;
 }
-
 </style>

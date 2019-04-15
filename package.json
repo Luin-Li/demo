@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@tweenjs/tween.js": "^17.2.0",
+    "animate.css": "^3.7.0",
     "aws-sdk": "^2.224.1",
     "axios": "^0.17.1",
     "element-ui": "^2.1.0",
