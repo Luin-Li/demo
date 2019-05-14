@@ -38,11 +38,11 @@ export default {
           label: '添加灯光',
           method: drawLight
         },
-        // {
-        //   name: 'face',
-        //   label: '绘制3D模型',
-        //   method: drawFace
-        // },
+        {
+          name: 'face',
+          label: '绘制3D模型',
+          method: drawFace
+        },
         {
           name: 'moveCube',
           label: '绘制运动的立方体',

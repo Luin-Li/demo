@@ -38,6 +38,12 @@ export default {
     }
   },
   created () {
+    let arr = [1,2,3,4,5,6,null,{b: 2}, {a: 2}]
+    let arr_a = _.chunk(arr, 2) // 深切割，切完后arr改动不会影响arr_a
+    let arr_b = _.compact(arr) // 移除假值（false、null、 0、""、undefined， 以及NaN 都是 “假值”）
+    let arr_c = _.difference(arr, [null,2]) // 排除相同项
+    let arr_d = _.differenceBy(arr, [{a: 1}], 'a') // 只要对象包含{a:1}都被移除即使该对象不止一个a一个属性
+    console.log(arr_d)
   },
   components: {
     kk,

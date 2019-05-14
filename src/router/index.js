@@ -7,6 +7,7 @@ import drawIcon from '../views/drawIcon.vue'
 import threeSet from '../views/three-set.vue'
 import imageHidden from '../views/image-hidden.vue'
 import videoEditor from '../views/video-edit.vue'
+import shake from '../views/shake-shake.vue'
 
 Vue.use(Router)
 
@@ -36,6 +37,16 @@ export default new Router({
       path: '/video-editor',
       component: videoEditor,
       name: '视频编辑'
+    },
+    {
+      path: '/three-set',
+      component: threeSet,
+      name: '示例'
+    },
+    {
+      path: '/shake',
+      component: shake,
+      name: '摇一摇'
     }
   ]
 })

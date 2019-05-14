@@ -1,4 +1,5 @@
 const THREE = window.THREE = require('three');
+const AlloyTouch = require('AlloyTouch')
 require('three/examples/js/loaders/PLYLoader');
 const TWEEN = require('@tweenjs/tween.js')
 
@@ -50,8 +51,6 @@ const initLight = () => {
 
 // 5.加载ply模型
 let loader = new THREE.PLYLoader();
-let mesh
-
 const initObject = () => {
     loader.load(plySrc, function( geometry ){
 
@@ -61,13 +60,12 @@ const initObject = () => {
         // MeshBasicMaterial材质中的vertexColors设置为THREE.FaceColors，就可以让几何体的每个顶点，使用geometry.faces[i].color中的颜色。
         var material = new THREE.MeshBasicMaterial({ vertexColors: THREE.VertexColors,flatShading: true } );
 
-        mesh = new THREE.Mesh( geometry, material );
-        
+        let mesh = new THREE.Mesh( geometry, material );
         // 人脸角度调整
         mesh.position.x = 2.2;
         mesh.position.y = 2.8;
         mesh.position.z = 3.0;
-        mesh.rotation.y = 8 * Math.PI / 16
+        mesh.rotation.y = 0
         mesh.rotation.x = 0;
         mesh.scale.multiplyScalar( 0.004 ); // 缩放模型大小
 
@@ -90,6 +88,24 @@ const initObject = () => {
 	    // tween3.chain(tween1);
     
         // tween1.start();
+        const alloyTouch = new AlloyTouch({
+            touch:"#face",//反馈触摸的dom
+            vertical: false,//不必需，默认是true代表监听竖直方向touch
+            target: mesh.rotation, //运动的对象
+            property: "y",  //被运动的属性
+            factor: 0.00000008,//不必需,表示触摸位移运动位移与被运动属性映射关系，默认值是1
+            moveFactor: 0.2,//不必需,表示touchmove位移与被运动属性映射关系，默认值是1
+            initialValue: 8 * Math.PI / 16
+        })
+        const alloyTouchX = new AlloyTouch({
+            touch:"#face",//反馈触摸的dom
+            vertical: true,//不必需，默认是true代表监听竖直方向touch
+            target: mesh.rotation, //运动的对象
+            property: "x",  //被运动的属性
+            factor: 0.00000008,//不必需,表示触摸位移运动位移与被运动属性映射关系，默认值是1
+            moveFactor: 0.2,//不必需,表示touchmove位移与被运动属性映射关系，默认值是1
+            initialValue: 0
+        })
     });
     
 }
